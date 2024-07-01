@@ -1,0 +1,17 @@
+D:\GearedFinance\Backend\Service\bin\Debug\net7.0\Service.deps.json
+D:\GearedFinance\Backend\Service\bin\Debug\net7.0\Service.dll
+D:\GearedFinance\Backend\Service\bin\Debug\net7.0\Service.pdb
+D:\GearedFinance\Backend\Service\bin\Debug\net7.0\Entities.dll
+D:\GearedFinance\Backend\Service\bin\Debug\net7.0\Repository.dll
+D:\GearedFinance\Backend\Service\bin\Debug\net7.0\Repository.pdb
+D:\GearedFinance\Backend\Service\bin\Debug\net7.0\Entities.pdb
+D:\GearedFinance\Backend\Service\obj\Debug\net7.0\Service.csproj.AssemblyReference.cache
+D:\GearedFinance\Backend\Service\obj\Debug\net7.0\Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\GearedFinance\Backend\Service\obj\Debug\net7.0\Service.AssemblyInfoInputs.cache
+D:\GearedFinance\Backend\Service\obj\Debug\net7.0\Service.AssemblyInfo.cs
+D:\GearedFinance\Backend\Service\obj\Debug\net7.0\Service.csproj.CoreCompileInputs.cache
+D:\GearedFinance\Backend\Service\obj\Debug\net7.0\Service.dll
+D:\GearedFinance\Backend\Service\obj\Debug\net7.0\refint\Service.dll
+D:\GearedFinance\Backend\Service\obj\Debug\net7.0\Service.pdb
+D:\GearedFinance\Backend\Service\obj\Debug\net7.0\ref\Service.dll
+D:\GearedFinance\Backend\Service\obj\Debug\net7.0\Service.csproj.CopyComplete

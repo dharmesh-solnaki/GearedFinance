@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Geared-Finance-API.props" />
+</Project>
