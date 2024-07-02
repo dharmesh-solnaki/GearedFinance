@@ -2,20 +2,21 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AppHeaderModule } from './app-header/app-header.module';
+import { RouterModule, Routes } from '@angular/router';
+import { AppHeaderComponent } from './app-header/app-header.component';
 
+const appRoutes: Routes = [{ path: '', component: AppComponent }];
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    NgbModule,
-
+    AppHeaderModule,
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

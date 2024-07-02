@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oH718UoN8C6XPXuKMlF1g/LbmSWdjPBU77tD5Hn33FcwkUzEZr5Ubam/n6yaNtW7IHqPABT5daw6qZForfS9yA==",
+  "dgSpecHash": "BXutwRRyxAw=",
   "success": true,
   "projectFilePath": "D:\\GearedFinance\\Backend\\Repository\\Repository.csproj",
   "expectedPackageFiles": [
@@ -18,7 +18,10 @@
     "C:\\Users\\pce119\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
     "C:\\Users\\pce119\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "C:\\Users\\pce119\\.nuget\\packages\\npgsql\\7.0.7\\npgsql.7.0.7.nupkg.sha512",
-    "C:\\Users\\pce119\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\7.0.18\\npgsql.entityframeworkcore.postgresql.7.0.18.nupkg.sha512"
+    "C:\\Users\\pce119\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\7.0.18\\npgsql.entityframeworkcore.postgresql.7.0.18.nupkg.sha512",
+    "C:\\Users\\pce119\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.19\\microsoft.netcore.app.ref.7.0.19.nupkg.sha512",
+    "C:\\Users\\pce119\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.19\\microsoft.windowsdesktop.app.ref.7.0.19.nupkg.sha512",
+    "C:\\Users\\pce119\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.19\\microsoft.aspnetcore.app.ref.7.0.19.nupkg.sha512"
   ],
   "logs": []
 }
