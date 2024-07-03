@@ -1,0 +1,22 @@
+.wrapper{ 
+    /* height: 100%;    */
+    padding: 6.25rem 1.25rem 1.25rem 14rem;
+}
+
+.card{
+  /* max-width: 100%; */
+/* height:100%;  */
+  box-shadow: 0 5px 27px rgba(0, 0, 0, 0.27);
+}
+.wrapper-shriked{
+    /* height: 100%; */
+    padding: 6.25rem 1.25rem 1.25rem 5rem;
+}
+
+
+@media (max-width:768px)  {
+    .wrapper{ 
+        max-height: fit-content;      
+        padding: 6.25rem 1rem 1rem 1rem;
+    }
+}

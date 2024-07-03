@@ -1,0 +1,54 @@
+<div
+  class="inner-page-heading d-lg-flex justify-content-between align-items-center"
+>
+  <span class="inner-page-heading-title"> USER MANAGEMENT </span>
+
+  <!-- <form class="form">
+        <div class="from-control">
+          <input type="text" class="form-control" placeholder="Search" />
+        </div>
+      </form>
+      <app-common-selectmenu [optionData]="selectMenuRoles"  class="col-lg-6">  </app-common-selectmenu>
+    </div> -->
+  <!-- <div class="col-lg-4 d-flex  gap-1">
+      <button class=" btn btn-secondary">Search</button
+      ><button class=" btn btn-secondary">Clear</button
+      ><button class=" btn btn-primary">Add User</button>
+    </div> -->
+
+  <ul class="d-lg-flex justify-content-end align-items-center">
+    <li class="m-2">
+      <form class="form" [formGroup]="userHeaderSearchForm">
+        <div class="from-control">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="searchString"
+            placeholder="Search"
+          />
+        </div>
+      </form>
+    </li>
+    <li class="m-2">
+      <app-common-selectmenu
+    
+        #roleSelectionMenu
+        [optionData]="selectMenuRoles"
+        defaultOption="All Roles"     
+       
+      >
+      </app-common-selectmenu>
+    </li>
+    <li class="d-lg-flex flex-row align-item-center">
+      <button class="btn btn-secondary mx-1" (click)="handleFormSubmit()">
+        Search
+      </button>
+      <button class="btn btn-secondary mx-1" (click)="resetForm()">
+        Clear
+      </button>
+      <button class="btn btn-primary ms-1">Add User</button>
+    </li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>

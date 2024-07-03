@@ -1,0 +1,349 @@
+/* common styles */
+.btn {
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: transparent !important;
+  padding: 4px 15px;
+  font-size: 14px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+.btn-primary {
+  background-color: #ffa737 !important;
+  color: black !important;
+}
+.btn-secondary {
+  background: #34495e !important;
+  color: #fff !important;
+}
+.form-control {
+  font-size: 14px;
+  line-height: 18px;
+  height: 34px;
+  border-color: #34495e !important;
+  padding: 6px 12px;
+  background-color: #eef4f7 !important;
+}
+.form-control:focus {
+  border-color: #34495e;
+  box-shadow: 0 0 0 0.2rem #34495e20;
+  background-color: #eef4f7;
+}
+
+ul{
+  list-style-type: none;
+}
+
+
+/* app-header starts */
+.appheader {
+  position: absolute;
+
+  /* max-width: fit-content; */
+  z-index: 2000;
+  width: auto;
+}
+.logodiv {
+  width: 13rem;
+  height: 4.8rem;
+  margin-right: 3rem;
+  background-color: black;
+}
+.logodivShrinked {
+  height: 4.8rem;
+  width: 3.75rem;
+  background-color: black;
+}
+#siteicon {
+  /* width: rem; */
+  height: 4rem;
+  padding: 1rem 0.8rem 1rem 0.8rem;
+}
+#sitelogo {
+  width: 6rem;
+}
+.navbar {
+  position: absolute;
+  top: 4.3rem;
+  z-index: 10;
+  background-color: black;
+  height: calc(100vh - 69px);
+}
+.userdiv {
+  width: 13rem;
+  height: 8.313rem;
+  background-color: #2f2f2f;
+  padding: 1.3rem;
+  color: white;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  border-top: 1px solid rgb(255, 255, 255);
+}
+
+.userdiv > div > span > img {
+  width: 0.75rem;
+}
+.userdiv-navshrinked {
+  width: 3.75rem;
+  height: 8.313rem;
+  background-color: #2f2f2f;
+  color: white;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  border-top: 1px solid rgb(255, 255, 255);
+}
+.userdiv-navshrinked > div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding: 2rem 0rem;
+}
+.userdiv-navshrinked > div > span > img {
+  width: 1rem;
+}
+.userdivtext {
+  color: white;
+  text-decoration: none;
+  font-size: 0.7rem;
+}
+.menubar {
+  color: white;
+  width: 100%;
+}
+.menubar > ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.menubar > ul > li {
+  width: 100%;
+}
+.menubar > ul > li > a {
+  position: relative;
+  display: flex;
+  width: 100%;
+  text-decoration: none;
+  color: white;
+  height: 2.188rem;
+  align-items: center;
+  overflow: hidden;
+
+  /* background-color: red; */
+}
+.menubar > ul > li > a > span {
+  margin-left: 3.6rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.menuicon {
+  width: 1.4rem;
+  position: absolute;
+  left: 1rem;
+  top: 0.4rem;
+}
+.activelink {
+  position: relative;
+  background-color: #ffa737;
+  text-decoration: none;
+  color: black !important;
+}
+.activelink > img {
+  top: -1.15rem !important;
+}
+.navleftbtn {
+  background-image: url("../../assets/Images/ic-nav-left.svg");
+  background-repeat: no-repeat;
+  height: 1.4rem;
+  margin-top: calc(100vh - 823px + 15rem);
+  margin-left: 9.5rem;
+}
+.navrightbtn {
+  background-image: url("../../assets/Images/ic-nav-right.svg");
+  background-repeat: no-repeat;
+  height: 1.4rem;
+  margin-top: calc(100vh - 823px + 15rem);
+  margin-left: 1rem;
+}
+.offcanvas.offcanvas-start {
+  width: 13rem !important;
+}
+
+/* Hear style Ends */
+
+/* Settings module syles */
+.setting-wrapper {
+  padding: 1.875rem;
+}
+.settingTitleText {
+  font-size: 0.877rem;
+  font-weight: 700;
+}
+.setting-leftdiv {
+  border-right: 1px solid;
+}
+.setting-ul {
+  list-style-type: none;
+  padding-left: 0%;
+}
+.setting-ul > li > a {
+  text-decoration: none;
+  display: block;
+  color: #2e2e2e;
+  font-size: 0.87rem;
+  padding: 2px 10px;
+  /* position: relative; */
+}
+/* .setting-ul>li>a.activelink{
+ background-color: #2e2e2e;
+} */
+.horizontal-line {
+  border-bottom: 1px solid #2e2e2e;
+  margin: 1rem 0px;
+  width: 100%;
+}
+.setting-right-div {
+  border-left: 1px solid #2e2e2e;
+}
+
+
+/* user mangement */
+.inner-page-heading-title{
+  color: #fff;
+  background: #6c7e8f;
+  border-radius: 6px;
+  padding: 0.4rem 1.5rem;
+  font-size: 1.2rem;
+
+  /* margin: 1rem 0.5rem;/ */
+ white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  margin-right: 15px;
+}
+
+/* .dropdownselection{
+  border-radius: 4px;
+  display: inline-block; 
+  border: 1px solid #34495e ; 
+   padding: 6px 30px 6px 12px; 
+  max-width: calc(min-content + 100rem) ;
+  font-weight: 400 ;
+  text-align: left;
+  cursor: pointer;
+  background-color: #eef4f7 ;
+  height: 34px;
+  transition: all .25s cubic-bezier(.4,0,.2,1);
+  color: #6c7e8f ;
+   overflow: hidden;
+   position: relative;
+} */
+
+
+ .dropdownselection{
+  position: relative;
+  border-radius: 4px;
+  border: 1px solid #34495e ; 
+  background-color: #eef4f7 ;
+  font-weight: 400 ;
+  height: 34px;
+  width:max-content;
+  padding: 0.3rem 3rem 0.6rem 0.8rem;
+ }
+.dropdownImage{
+  position: absolute ;
+  right:10%;
+  top:45%;
+
+}
+.dropdownImageTransform{
+  transform: rotate(180deg);
+}
+ .dropdown-list{
+    position: absolute;
+    /* width: 100%; */
+    z-index: 9999;
+    background: #fff;
+    margin-top: 3px;
+    box-shadow: 0 0 5px rgba(0,0,0,.2);
+    min-width: 160px;
+} 
+.dropdown-list>ul>li {
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+  text-align: left;
+  color: #6c7e8f;
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  .appheader {
+    width: 100%;
+    /* top: 0; */
+    background-color: rgb(211, 170, 95);
+  }
+}
+
+@media (max-width: 425px) {
+  .appheader {
+    /* position: sticky; */
+    width: 100%;
+    background-color: black;
+  }
+  .logodiv {
+    width: min-content;
+    height: 4.8rem;
+    /* margin-right: 3rem; */
+  }
+  .logodivShrinked {
+    height: 4.8rem;
+    width: min-content;
+  }
+
+  #sitelogo {
+    display: none;
+  }
+
+  /* settings- styles */
+  .setting-wrapper {
+    padding: 0%;
+    position: relative;
+  }
+  .setting-wrapper > .row {
+    position: relative;
+
+
+  }
+
+  .setting-left-div {
+    position: absolute;
+    top: 0;
+    margin-left: 0px !important;
+    background-color: white;
+    border-right: 1px solid black;
+    padding-top: 1rem;
+  }
+  .setting-menushow {
+    display: block !important;
+    position: absolute;
+    left: 9.6rem;
+    top: 4rem;
+    padding: 0.4rem;
+    border: 1px solid black;
+    border-top-right-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+  }
+  .setting-menuhide {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    top: 4rem;
+    padding: 0.4rem;
+    border: 1px solid black;
+    border-top-right-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+  }
+}

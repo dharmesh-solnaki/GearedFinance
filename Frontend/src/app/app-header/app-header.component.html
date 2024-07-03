@@ -74,7 +74,10 @@
           </ul> -->
         <ul class="p-0 mt-5">
           <li *ngFor="let item of menuData">
-            <a class="text-center">
+            <a class="text-center"
+            [routerLink]="item.routerPath"
+            routerLinkActive="activelink"
+            >
               <img class="menuicon" [src]="item.imagePath" />
               <span [ngClass]="{ 'd-none': shuoldVisible }">{{
                 item.menuItem | uppercase

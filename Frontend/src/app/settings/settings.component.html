@@ -1,0 +1,45 @@
+<div class="setting-wrapper">
+  <div class="row">
+    <div class="col-auto pe-3 setting-left-div"
+     [ngClass]="!isSdiebarVisible?'d-block' : 'd-none'"
+    >
+      <p class="settingTitleText mb-1">SYSTEM PROPERITES</p>
+      <ul class="setting-ul">
+        <li *ngFor="let item of systemPropertiesData">
+          <a href="">
+            {{ item }}
+          </a>
+        </li>
+      </ul>
+      <hr class="horizontal-line" />
+      <p class="settingTitleText mb-1">USERS</p>
+      <ul class="setting-ul">
+        <li>
+          <a [routerLink]="['/settings/user-management']"> User Management </a>
+        </li>
+      </ul>
+      <hr class="horizontal-line" />
+      <p class="settingTitleText mb-1">SALES & MARKETING</p>
+      <ul class="setting-ul">
+        <li *ngFor="let item of salesAndMarketingData">
+          <a href="">
+            {{ item }}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col setting-right-div">
+
+    <app-user-management></app-user-management>
+     
+
+    </div>
+  </div>
+  <button
+    class="btn btn-primary d-none"
+    [ngClass]="!isSdiebarVisible ? 'setting-menushow ' : 'setting-menuhide'"
+    (click)="toggleSidebar()"
+  >
+    <img src="../../assets/Images/icon-sidebar.svg" width="25rem" />
+  </button>
+</div>
