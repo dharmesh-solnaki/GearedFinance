@@ -1,6 +1,5 @@
-<div
-  class="inner-page-heading d-lg-flex justify-content-between align-items-center"
->
+<div  class="">
+ <div class="inner-page-heading d-lg-flex justify-content-between">
   <span class="inner-page-heading-title"> USER MANAGEMENT </span>
 
   <!-- <form class="form">
@@ -46,9 +45,12 @@
       <button class="btn btn-secondary mx-1" (click)="resetForm()">
         Clear
       </button>
-      <button class="btn btn-primary ms-1">Add User</button>
+      <a  class="btn btn-primary ms-1" [routerLink]="['/settings/user-management/add']">Add User</a>
     </li>
     <li></li>
     <li></li>
   </ul>
+ </div>
+
+ 
 </div>

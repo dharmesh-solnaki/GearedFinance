@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef,  OnInit,  ViewChild } from '@angular/core';
+import {  Component,   OnInit,  ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CommonSelectmenuComponent } from 'src/app/Shared/common-selectmenu/common-selectmenu.component';
 import { selectionRoles } from 'src/app/Shared/constants.model';
@@ -24,28 +24,7 @@ export class UserManagementComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.selectMenuRoles = [
-      { option: selectionRoles.GearedAdmin, value: selectionRoles.GearedAdmin },
-      {
-        option: selectionRoles.GearedSalesRep,
-        value: selectionRoles.GearedSuperAdmin,
-      },
-      {
-        option: selectionRoles.GearedSuperAdmin,
-        value: selectionRoles.GearedSuperAdmin,
-      },
-      {
-        option: selectionRoles.VendorGuestUser,
-        value: selectionRoles.GearedSuperAdmin,
-      },
-      {
-        option: selectionRoles.VendorManager,
-        value: selectionRoles.VendorManager,
-      },
-      {
-        option: selectionRoles.VendorSalesRep,
-        value: selectionRoles.VendorSalesRep,
-      },
+    this.selectMenuRoles = [   
     ];
   }
   

@@ -4,40 +4,74 @@
   outline: none !important;
   border-color: transparent !important;
   padding: 4px 15px;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 500;
+  /* font-weight: 600; */
 }
 .btn-primary {
   background-color: #ffa737 !important;
   color: black !important;
+  font-weight: 700 !important;
 }
 .btn-secondary {
   background: #34495e !important;
   color: #fff !important;
+  font-weight: 600 !important;
 }
 .form-control {
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 0.875rem !important;
+  line-height: 18px !important;
   height: 34px;
   border-color: #34495e !important;
-  padding: 6px 12px;
+  padding: 6px 12px !important;
   background-color: #eef4f7 !important;
 }
 .form-control:focus {
-  border-color: #34495e;
-  box-shadow: 0 0 0 0.2rem #34495e20;
-  background-color: #eef4f7;
+  border-color: #34495e !important;
+  box-shadow: 0 0 0 0.2rem #34495e20 !important;
+  background-color: #eef4f7 !important;
+}
+.form-label {
+  margin-bottom: 0px !important;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  color: #2e2e2e;
+  padding-bottom: 5px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  text-overflow: ellipsis;
 }
 
-ul{
+ul {
   list-style-type: none;
 }
-
-
+.form-check {
+  width: 100%;
+}
+.form-check-inline .form-check-input {
+  position: absolute;
+  opacity: 0;
+}
+.form-check-input + .input-group-text {
+  font-size: 14px;
+  line-height: 18px;
+  height: 34px;
+  border-color: #34495e;
+  padding: 6px 12px;
+  background-color: #eef4f7;
+  text-align: center;
+  display: block;
+  cursor: pointer;
+}
+.form-check-input:checked + .input-group-text {
+  background-color: #34495e;
+  color: white;
+}
 /* app-header starts */
 .appheader {
   position: absolute;
@@ -68,7 +102,7 @@ ul{
 .navbar {
   position: absolute;
   top: 4.3rem;
-  z-index: 10;
+  z-index: 1000;
   background-color: black;
   height: calc(100vh - 69px);
 }
@@ -198,9 +232,12 @@ ul{
   padding: 2px 10px;
   /* position: relative; */
 }
-/* .setting-ul>li>a.activelink{
- background-color: #2e2e2e;
-} */
+ .settingsliactivelink {
+ background-color: #f1f6f9;
+} 
+.setting-ul >li > a:hover {
+  background-color: #f1f6f9 !important;
+}
 .horizontal-line {
   border-bottom: 1px solid #2e2e2e;
   margin: 1rem 0px;
@@ -209,20 +246,23 @@ ul{
 .setting-right-div {
   border-left: 1px solid #2e2e2e;
 }
-
+.inner-page-heading {
+  border-bottom: 1px solid;
+}
 
 /* user mangement */
-.inner-page-heading-title{
+.inner-page-heading-title {
   color: #fff;
   background: #6c7e8f;
   border-radius: 6px;
-  padding: 0.4rem 1.5rem;
+  padding: 0.3rem 1.5rem;
   font-size: 1.2rem;
-
-  /* margin: 1rem 0.5rem;/ */
- white-space: nowrap; 
+  font-weight: 500;
+  height: fit-content;
+  margin-top: 0.6rem;
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
   margin-right: 15px;
 }
 
@@ -243,40 +283,48 @@ ul{
    position: relative;
 } */
 
-
- .dropdownselection{
+.selectionmenuholder{
+  position: relative;
+}
+.dropdownselection {
   position: relative;
   border-radius: 4px;
-  border: 1px solid #34495e ; 
-  background-color: #eef4f7 ;
-  font-weight: 400 ;
+  border: 1px solid #34495e;
+  background-color: #eef4f7;
+  font-weight: 400;
   height: 34px;
-  width:max-content;
-  padding: 0.3rem 3rem 0.6rem 0.8rem;
- }
-.dropdownImage{
-  position: absolute ;
-  right:10%;
-  top:45%;
-
+  width: 100%;
+  text-align: left;
+  padding: 0.3rem 3rem 0.6rem 0.5rem;
 }
-.dropdownImageTransform{
+.dropdownImage {
+  position: absolute;
+  right: 5%;
+  top: 45%;
+}
+.dropdownImageTransform {
   transform: rotate(180deg);
 }
- .dropdown-list{
-    position: absolute;
-    /* width: 100%; */
-    z-index: 9999;
-    background: #fff;
-    margin-top: 3px;
-    box-shadow: 0 0 5px rgba(0,0,0,.2);
-    min-width: 160px;
-} 
-.dropdown-list>ul>li {
-  padding: 0.4rem 0.75rem;
+.dropdown-list {
+  position: absolute;
+  width: 100%;
+  z-index: 50;
+  background: #fff;
+  margin-top: 3px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  /* min-width: 160px; */
+  /* height: fit-content; */
+}
+.dropdown-list > ul > li {
+  padding: 0.2rem 0.75rem;
   cursor: pointer;
+  font-size: 0.98rem;
   text-align: left;
   color: #6c7e8f;
+}
+
+.dropdown-list > ul > li:hover{
+  background-color: #eef4f7;
 }
 
 @media (min-width: 426px) and (max-width: 768px) {
@@ -289,7 +337,7 @@ ul{
 
 @media (max-width: 425px) {
   .appheader {
-    /* position: sticky; */
+    position: fixed;
     width: 100%;
     background-color: black;
   }
@@ -314,13 +362,12 @@ ul{
   }
   .setting-wrapper > .row {
     position: relative;
-
-
   }
 
   .setting-left-div {
     position: absolute;
     top: 0;
+    z-index: 100;
     margin-left: 0px !important;
     background-color: white;
     border-right: 1px solid black;
@@ -331,6 +378,7 @@ ul{
     position: absolute;
     left: 9.6rem;
     top: 4rem;
+    z-index: 150;
     padding: 0.4rem;
     border: 1px solid black;
     border-top-right-radius: 0.4rem;
@@ -341,9 +389,14 @@ ul{
     position: absolute;
     left: 0;
     top: 4rem;
+    z-index: 150;
     padding: 0.4rem;
     border: 1px solid black;
     border-top-right-radius: 0.4rem;
     border-bottom-right-radius: 0.4rem;
+  }
+  .setting-right-div {
+    padding: 2rem;
+    border-left: none;
   }
 }

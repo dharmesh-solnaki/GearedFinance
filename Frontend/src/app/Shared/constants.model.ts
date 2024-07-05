@@ -1,3 +1,8 @@
+export interface selectMenu {
+   option:string,
+   value:string|number,
+}
+
 export const menuBarItems = [
   {
     menuItem: 'Dashboard',
@@ -52,7 +57,7 @@ export const settingsSalesAndMarketing = [
 ];
 
 export enum selectionRoles {
-  GearedAdmin='Geared Admin',
+  GearedAdmin = 'Geared Admin',
   GearedSalesRep = 'Geared Sales Rep',
   GearedSuperAdmin = 'Geared Super Admin',
   VendorGuestUser = 'Vendor Guest User',
@@ -60,6 +65,61 @@ export enum selectionRoles {
   VendorSalesRep = 'Vendor Sales Rep',
 }
 
+export const vendorSelectionMenu = [
+  { option: 'Vendor 1', value: 1 },
+  { option: 'Vendor 2', value: 2 },
+  { option: 'Vendor 3', value: 3 },
+];
 
+export const roleSelectionMenu = [
+  { option: selectionRoles.GearedAdmin, value: selectionRoles.GearedAdmin },
+  {
+    option: selectionRoles.GearedSalesRep,
+    value: selectionRoles.GearedSalesRep,
+  },
+  {
+    option: selectionRoles.GearedSuperAdmin,
+    value: selectionRoles.GearedSuperAdmin,
+  },
+  {
+    option: selectionRoles.VendorGuestUser,
+    value: selectionRoles.VendorGuestUser,
+  },
+  {
+    option: selectionRoles.VendorManager,
+    value: selectionRoles.VendorManager,
+  },
+  {
+    option: selectionRoles.VendorSalesRep,
+    value: selectionRoles.VendorSalesRep,
+  },
+];
 
+export const dateSelectonMenu = () => {
+  let dateArray = [];
+  for (let i = 1; i <= 31; i++) {
+    dateArray.push({ option: i.toString(), value: i });
+  }
+  return dateArray;
+};
+export const monthSelectonMenu = [
+  { option: 'Jan', value: 'January' },
+  { option: 'Feb', value: 'February' },
+  { option: 'Mar', value: 'March' },
+  { option: 'Apr', value: 'April' },
+  { option: 'May', value: 'May' },
+  { option: 'Jun', value: 'June' },
+  { option: 'Jul', value: 'July' },
+  { option: 'Aug', value: 'August' },
+  { option: 'Sep', value: 'September' },
+  { option: 'Oct', value: 'October' },
+  { option: 'Nov', value: 'November' },
+  { option: 'Dec', value: 'December' },
+];
 
+export const notificationPreSelectionMenu = [
+  // { option: 'None', value: 0 },
+  { option: 'Email', value: 1 },
+  { option: 'SMS', value: 2 },
+  { option: 'Email & SMS', value: 3 },
+];

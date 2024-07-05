@@ -7,9 +7,10 @@ import { Component,Input, OnInit } from '@angular/core';
 export class CommonSelectmenuComponent implements OnInit  {
   @Input() optionData: { option: string; value: string | number }[] = [];
   @Input() defaultOption: string = '';
-  selectedValue:string|number=''
+  @Input() needsSearching:boolean=false  
+  selectedValue:string|number='';
   isMenuOpen:boolean=false;
-
+ 
   ngOnInit(): void {
       this.selectedValue=this.defaultOption
   }
@@ -21,6 +22,7 @@ export class CommonSelectmenuComponent implements OnInit  {
 
   resetElement(){
     this.selectedValue=this.defaultOption 
+    this.isMenuOpen=false
   }
   menuToggler(){
     this.isMenuOpen=!this.isMenuOpen

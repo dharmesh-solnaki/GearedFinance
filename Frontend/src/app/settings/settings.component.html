@@ -15,7 +15,9 @@
       <p class="settingTitleText mb-1">USERS</p>
       <ul class="setting-ul">
         <li>
-          <a [routerLink]="['/settings/user-management']"> User Management </a>
+          <a [routerLink]="['/settings/user-management']"
+             routerLinkActive="settingsliactivelink"
+          > User Management </a>
         </li>
       </ul>
       <hr class="horizontal-line" />
@@ -30,8 +32,8 @@
     </div>
     <div class="col setting-right-div">
 
-    <app-user-management></app-user-management>
-     
+    <!-- <app-user-management></app-user-management> -->
+     <router-outlet></router-outlet>
 
     </div>
   </div>

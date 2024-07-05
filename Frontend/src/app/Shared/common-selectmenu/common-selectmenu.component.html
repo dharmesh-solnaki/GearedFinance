@@ -11,17 +11,21 @@
     </ng-container>
   </div>
 </select> -->
-
-
-<button class="dropdownselection" (click)="menuToggler()">
-<span>{{selectedValue}}</span>
-<img class="dropdownImage" [ngClass]="isMenuOpen?'dropdownImageTransform':''" width="15rem" src="../../../assets/Images/icon-dropdown-arrow.svg"> 
-</button>
-
-<div class="dropdown-list" [ngClass]="isMenuOpen ? 'd-block':'d-none'" >
-   <ul *ngFor="let item of optionData" class="p-0">
-   <li (click)="valueChangeHadler(item.value)">{{item.value}}</li>
-
-   </ul>
-   
+<div class="selectionmenuholder">
+  <button type="button" class="dropdownselection" (click)="menuToggler()">
+    <span>{{ selectedValue }}</span>
+    <img
+      class="dropdownImage"
+      [ngClass]="isMenuOpen ? 'dropdownImageTransform' : ''"
+      width="15rem"
+      src="../../../assets/Images/icon-dropdown-arrow.svg"
+    />
+  </button>
+  
+  <div class="dropdown-list" [ngClass]="isMenuOpen ? 'd-block' : 'd-none'">
+    <ul  class="p-0 m-0">
+      <li *ngFor="let item of optionData" (click)="valueChangeHadler(item.value)">{{ item.option }}</li>
+    </ul>
+  </div>
 </div>
+
