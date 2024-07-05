@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Geared-Finance-API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+590cc40d6d89c33d4093ff33616146c33968b928")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+19bf98a553a4bd8a4672138586256b707b797fe0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Geared-Finance-API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Geared-Finance-API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,7 +1,7 @@
 import {  Component,   OnInit,  ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CommonSelectmenuComponent } from 'src/app/Shared/common-selectmenu/common-selectmenu.component';
-import { selectionRoles } from 'src/app/Shared/constants.model';
+import { RoleEnum, roleSelectionMenu } from 'src/app/Shared/constants.model';
 
 @Component({
   selector: 'app-user-management',
@@ -24,8 +24,7 @@ export class UserManagementComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.selectMenuRoles = [   
-    ];
+    this.selectMenuRoles = roleSelectionMenu;
   }
   
 

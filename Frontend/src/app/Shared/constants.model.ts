@@ -1,6 +1,6 @@
 export interface selectMenu {
-   option:string,
-   value:string|number,
+  option: string;
+  value: string | number;
 }
 
 export const menuBarItems = [
@@ -56,7 +56,7 @@ export const settingsSalesAndMarketing = [
   'Vendor user links',
 ];
 
-export enum selectionRoles {
+export enum RoleEnum {
   GearedAdmin = 'Geared Admin',
   GearedSalesRep = 'Geared Sales Rep',
   GearedSuperAdmin = 'Geared Super Admin',
@@ -64,34 +64,48 @@ export enum selectionRoles {
   VendorManager = 'Vendor Manager',
   VendorSalesRep = 'Vendor Sales Rep',
 }
+export enum MonthEnum {
+  Jan = 1,
+  Feb = 2,
+  Mar = 3,
+  Apr = 4,
+  May = 5,
+  Jun = 6,
+  Jul = 7,
+  Aug = 8,
+  Sep = 9,
+  Oct = 10,
+  Nov = 11,
+  Dec = 12,
+}
 
 export const vendorSelectionMenu = [
-  { option: 'Vendor 1', value: 1 },
-  { option: 'Vendor 2', value: 2 },
-  { option: 'Vendor 3', value: 3 },
+  { option: 'Vendor 1', value: 'Vendo 1' },
+  { option: 'Vendor 2', value: 'Vendor 2' },
+  { option: 'Vendor 3', value: 'Vendor 3' },
 ];
 
 export const roleSelectionMenu = [
-  { option: selectionRoles.GearedAdmin, value: selectionRoles.GearedAdmin },
+  { option: RoleEnum.GearedAdmin, value: RoleEnum.GearedAdmin },
   {
-    option: selectionRoles.GearedSalesRep,
-    value: selectionRoles.GearedSalesRep,
+    option: RoleEnum.GearedSalesRep,
+    value: RoleEnum.GearedSalesRep,
   },
   {
-    option: selectionRoles.GearedSuperAdmin,
-    value: selectionRoles.GearedSuperAdmin,
+    option: RoleEnum.GearedSuperAdmin,
+    value: RoleEnum.GearedSuperAdmin,
   },
   {
-    option: selectionRoles.VendorGuestUser,
-    value: selectionRoles.VendorGuestUser,
+    option: RoleEnum.VendorGuestUser,
+    value: RoleEnum.VendorGuestUser,
   },
   {
-    option: selectionRoles.VendorManager,
-    value: selectionRoles.VendorManager,
+    option: RoleEnum.VendorManager,
+    value: RoleEnum.VendorManager,
   },
   {
-    option: selectionRoles.VendorSalesRep,
-    value: selectionRoles.VendorSalesRep,
+    option: RoleEnum.VendorSalesRep,
+    value: RoleEnum.VendorSalesRep,
   },
 ];
 
@@ -102,24 +116,22 @@ export const dateSelectonMenu = () => {
   }
   return dateArray;
 };
-export const monthSelectonMenu = [
-  { option: 'Jan', value: 'January' },
-  { option: 'Feb', value: 'February' },
-  { option: 'Mar', value: 'March' },
-  { option: 'Apr', value: 'April' },
-  { option: 'May', value: 'May' },
-  { option: 'Jun', value: 'June' },
-  { option: 'Jul', value: 'July' },
-  { option: 'Aug', value: 'August' },
-  { option: 'Sep', value: 'September' },
-  { option: 'Oct', value: 'October' },
-  { option: 'Nov', value: 'November' },
-  { option: 'Dec', value: 'December' },
-];
+export const monthSelectonMenu = ():selectMenu[] => {
+  let monthArray:selectMenu[] = [];
+
+  Object.keys(MonthEnum).forEach((key) => {
+    const value = MonthEnum[key as keyof typeof MonthEnum];
+    if (typeof value === 'number') {
+      monthArray.push({ option: key, value: value });
+    }
+  });
+  return monthArray;
+};
 
 export const notificationPreSelectionMenu = [
-  // { option: 'None', value: 0 },
-  { option: 'Email', value: 1 },
-  { option: 'SMS', value: 2 },
-  { option: 'Email & SMS', value: 3 },
+  { option: 'None', value: 'None' },
+  { option: 'Email', value: 'Email' },
+  { option: 'SMS', value: 'SMS' },
+  { option: 'Email & SMS', value: 'Email & SMS  ' },
 ];
+

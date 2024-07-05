@@ -40,7 +40,7 @@
   line-height: 1.125rem;
   color: #2e2e2e;
   padding-bottom: 5px;
-  font-weight: 600;
+  font-weight: 700;
   white-space: nowrap;
   overflow: hidden;
   display: block;
@@ -195,6 +195,7 @@ ul {
   height: 1.4rem;
   margin-top: calc(100vh - 823px + 15rem);
   margin-left: 9.5rem;
+  
 }
 .navrightbtn {
   background-image: url("../../assets/Images/ic-nav-right.svg");
@@ -202,6 +203,7 @@ ul {
   height: 1.4rem;
   margin-top: calc(100vh - 823px + 15rem);
   margin-left: 1rem;
+
 }
 .offcanvas.offcanvas-start {
   width: 13rem !important;
@@ -232,10 +234,10 @@ ul {
   padding: 2px 10px;
   /* position: relative; */
 }
- .settingsliactivelink {
- background-color: #f1f6f9;
-} 
-.setting-ul >li > a:hover {
+.settingsliactivelink {
+  background-color: #f1f6f9;
+}
+.setting-ul > li > a:hover {
   background-color: #f1f6f9 !important;
 }
 .horizontal-line {
@@ -266,24 +268,7 @@ ul {
   margin-right: 15px;
 }
 
-/* .dropdownselection{
-  border-radius: 4px;
-  display: inline-block; 
-  border: 1px solid #34495e ; 
-   padding: 6px 30px 6px 12px; 
-  max-width: calc(min-content + 100rem) ;
-  font-weight: 400 ;
-  text-align: left;
-  cursor: pointer;
-  background-color: #eef4f7 ;
-  height: 34px;
-  transition: all .25s cubic-bezier(.4,0,.2,1);
-  color: #6c7e8f ;
-   overflow: hidden;
-   position: relative;
-} */
-
-.selectionmenuholder{
+.selectionmenuholder {
   position: relative;
 }
 .dropdownselection {
@@ -294,39 +279,87 @@ ul {
   font-weight: 400;
   height: 34px;
   width: 100%;
+  font-size: 0.95rem;
   text-align: left;
   padding: 0.3rem 3rem 0.6rem 0.5rem;
+  overflow: hidden;
+  white-space: nowrap; 
+  text-overflow: ellipsis;
 }
 .dropdownImage {
   position: absolute;
   right: 5%;
   top: 45%;
+  transform: translateY(-50%);
 }
 .dropdownImageTransform {
   transform: rotate(180deg);
 }
+.selected-text {
+  /* max-width: calc(100% - 1px);  */
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .dropdown-list {
   position: absolute;
   width: 100%;
-  z-index: 50;
+  /* height : calc(100% + 7rem); */
+  /* overflow-y: scroll; */
+  z-index: 100;
   background: #fff;
   margin-top: 3px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   /* min-width: 160px; */
   /* height: fit-content; */
 }
+
 .dropdown-list > ul > li {
   padding: 0.2rem 0.75rem;
   cursor: pointer;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   text-align: left;
   color: #6c7e8f;
 }
 
-.dropdown-list > ul > li:hover{
+.dropdown-list > ul > li:hover {
   background-color: #eef4f7;
 }
 
+.filter-textbox {
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  padding: 5px  !important;
+
+}
+/* .filter-textbox input ,
+  .filter-textbox input:focus-visible
+  {
+  border: 0 !important;
+  width: 100% ;
+  padding: 0.3rem 0.6rem !important;
+  background-color: white !important;
+} */
+.search-input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 5px;
+  font-size: 14px;
+  color: #333;
+  background-color: transparent;
+}
+
+.page-section-title {
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 700;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #34495e;
+  border-bottom: 1px solid #34495e;
+}
 @media (min-width: 426px) and (max-width: 768px) {
   .appheader {
     width: 100%;
@@ -334,7 +367,11 @@ ul {
     background-color: rgb(211, 170, 95);
   }
 }
-
+@media (min-width:426px) {
+  .setting-left-div{
+    display: block !important;
+  }
+}
 @media (max-width: 425px) {
   .appheader {
     position: fixed;
@@ -398,5 +435,37 @@ ul {
   .setting-right-div {
     padding: 2rem;
     border-left: none;
+  }
+}
+
+
+@media (max-height:492px) {
+  .menubar{
+    height: 13rem ;
+    overflow: scroll;
+    position: relative;
+  }
+  .menubar>ul{
+    margin-top: 0.5rem !important;
+  }
+ 
+}
+
+@media (max-height:380px) {
+
+  .menubar{
+    height: 5rem ;
+    overflow: scroll;
+    position: relative;
+  }
+  .navleftbtn{
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.5rem;
+  }
+   .navrightbtn{
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.5rem;
   }
 }

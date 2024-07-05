@@ -6,6 +6,9 @@ import { UserManagementComponent } from './user-management/user-management.compo
 import { CommonSelectmenuComponent } from '../Shared/common-selectmenu/common-selectmenu.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddSiteUserComponent } from './user-management/add-site-user/add-site-user.component';
+import { PhoneMaskingDirective } from '../Directives/phone-masking.directive';
+
+
 
 const routes: Routes = [
   {
@@ -24,8 +27,13 @@ const routes: Routes = [
     UserManagementComponent,
     CommonSelectmenuComponent,
     AddSiteUserComponent,
+    PhoneMaskingDirective
   ],
-  imports: [ReactiveFormsModule, RouterModule.forChild(routes), CommonModule],
-  exports: [SettingsComponent, CommonSelectmenuComponent],
+  imports: [ReactiveFormsModule, RouterModule.forChild(routes), CommonModule,
+    
+  ],
+  exports: [SettingsComponent, CommonSelectmenuComponent,
+    PhoneMaskingDirective
+  ],
 })
 export class SettingsModule {}
