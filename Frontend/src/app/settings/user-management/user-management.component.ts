@@ -1,4 +1,4 @@
-import {  Component,   OnInit,  ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CommonSelectmenuComponent } from 'src/app/Shared/common-selectmenu/common-selectmenu.component';
 import { RoleEnum, roleSelectionMenu } from 'src/app/Shared/constants.model';
@@ -11,35 +11,31 @@ import { RoleEnum, roleSelectionMenu } from 'src/app/Shared/constants.model';
 export class UserManagementComponent implements OnInit {
   selectMenuRoles: { option: string; value: string }[] = [];
 
-  userHeaderSearchForm:FormGroup
+  userHeaderSearchForm: FormGroup;
 
-
- @ViewChild('roleSelectionMenu') roleSelectionMenu!: CommonSelectmenuComponent;
-  constructor(private _fb:FormBuilder) {
+  @ViewChild('roleSelectionMenu') roleSelectionMenu!: CommonSelectmenuComponent;
+  constructor(private _fb: FormBuilder) {
     this.userHeaderSearchForm = this._fb.group({
-      searchString:[''],
-      selectedRole:['']
-    })
-    
+      searchString: [''],
+      selectedRole: [''],
+    });
   }
 
   ngOnInit() {
     this.selectMenuRoles = roleSelectionMenu;
   }
-  
 
   // selectMenuValue(value:string|number){
 
   // this.userHeaderSearchForm.controls['selectedRole'].setValue(value)
   // }
-  handleFormSubmit(){
-  const selectedRole =   this.roleSelectionMenu.selectedValue
-  this.userHeaderSearchForm.controls['selectedRole'].setValue(selectedRole)
- console.log(this.userHeaderSearchForm.value)
+  handleFormSubmit() {
+    const selectedRole = this.roleSelectionMenu.selectedValue;
+    this.userHeaderSearchForm.controls['selectedRole'].setValue(selectedRole);
+    console.log(this.userHeaderSearchForm.value);
   }
-  resetForm(){
-    this.userHeaderSearchForm.reset()
-  this.roleSelectionMenu.resetElement()
+  resetForm() {
+    this.userHeaderSearchForm.reset();
+    this.roleSelectionMenu.resetElement();
   }
-
 }

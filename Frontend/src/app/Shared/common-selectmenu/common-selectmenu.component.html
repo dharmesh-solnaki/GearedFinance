@@ -11,8 +11,11 @@
     </ng-container>
   </div>
 </select> -->
+<!-- [ngClass]=" isFieldRequired ? 'requiredFormField':'' " -->
 <div class="selectionmenuholder">
-  <button type="button" class="dropdownselection" (click)="menuToggler()">
+  <button type="button" class="dropdownselection " 
+
+  (click)="menuToggler()">
     <span class="selected-text">{{ selectedOption }}</span>
     <img
       class="dropdownImage"
