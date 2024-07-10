@@ -16,8 +16,8 @@
     </div> -->
 
     <ul class="d-lg-flex justify-content-end align-items-center">
+      <form class="form d-flex " [formGroup]="userHeaderSearchForm">
       <li class="m-2">
-        <form class="form" [formGroup]="userHeaderSearchForm">
           <div class="from-control">
             <input
               type="text"
@@ -26,18 +26,20 @@
               placeholder="Search"
             />
           </div>
-        </form>
-      </li>
-      <li class="m-2">
-        <app-common-selectmenu
-          #roleSelectionMenu
-          [optionData]="selectMenuRoles"
-          defaultOption="All Roles"
-        >
-        </app-common-selectmenu>
-      </li>
+        </li>
+        <li class="m-2">
+          <app-common-selectmenu
+            #roleSelectionMenu
+            [optionData]="selectMenuRoles"
+            defaultOption="All Roles"
+             formControlName="selectedRole"
+          >
+          </app-common-selectmenu>
+        </li>
+      </form>
+     
       <li class="d-lg-flex flex-row align-item-center">
-        <button class="btn btn-secondary mx-1" (click)="handleFormSubmit()">
+        <button class="btn btn-secondary mx-1" (click)="searchHandler()">
           Search
         </button>
         <button class="btn btn-secondary mx-1" (click)="resetForm()">
@@ -49,26 +51,30 @@
           >Add User</a
         >
       </li>
-      <li></li>
-      <li></li>
+    
     </ul>
   </div>
-
-  <nav aria-label="Page navigation ">
-    <ul class="pagination">
-      <li class="page-item">
-        <a class="page-link" href="#"> < </a>
+  <div class="d-flex justify-content-start">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" >Users</a>
       </li>
-      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link fw-bold" href="#">Next</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#"> > </a>
+      <li class="nav-item">
+        <a class="nav-link" >Login History</a>
       </li>
+     
     </ul>
-  </nav>
+
+  </div>
+  <app-common-grid
+  [data]="userData"
+  [gridSettings]="gridSetting"
+  [paginationSettings]="paginationSettings"
+  (onSortEvent)="sortHandler($event)"
+  >
+</app-common-grid>
+
+
   <div>
   </div>
 </div>

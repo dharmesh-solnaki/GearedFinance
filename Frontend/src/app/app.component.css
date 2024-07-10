@@ -1,33 +1,39 @@
 .wrapper {
 
- height: 100%;
+   height: 100%;
   padding: 6.25rem 1.25rem 1.25rem 14rem;
+  /* overflow-y: scroll; */
 }
 
-.card {
- 
+
+
+.card { 
   /* width: 100%; */
   width: auto;
-  height: inherit; 
+  height: inherit;
   /* height: calc(100% - 6.25rem + 1.25rem); */
   box-shadow: 0 5px 27px rgba(0, 0, 0, 0.27);
+
 }
 .wrapper-shriked {
   height: 100%;
+  /* overflow-y: scroll; */
   padding: 6.25rem 1.25rem 1.25rem 5rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (max-height:815px){
   .wrapper {
-    max-height: fit-content;
+    /* max-height: fit-content; */
     padding: 6.25rem 1rem 1rem 1rem;
   }
   .wrapper-shriked {
-    max-height: fit-content;
+    /* max-height: fit-content; */
     padding: 6.25rem 1rem 1rem 1rem;
   }
   .card{
-    height: inherit;
-    overflow-y: scroll;
+    height: unset;
+    /* overflow-y: scroll; */
   }
 }
+
+ 

@@ -7,6 +7,8 @@ import { CommonSelectmenuComponent } from '../Shared/common-selectmenu/common-se
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddSiteUserComponent } from './user-management/add-site-user/add-site-user.component';
 import { PhoneMaskingDirective } from '../Directives/phone-masking.directive';
+import { CommonGridComponent } from '../Shared/common-grid/common-grid.component';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -27,13 +29,14 @@ const routes: Routes = [
     UserManagementComponent,
     CommonSelectmenuComponent,
     AddSiteUserComponent,
+    CommonGridComponent,
     PhoneMaskingDirective
   ],
   imports: [ReactiveFormsModule, RouterModule.forChild(routes), CommonModule,
-    
+    NgbPaginationModule,
   ],
   exports: [SettingsComponent, CommonSelectmenuComponent,
-    PhoneMaskingDirective
-  ],
+    PhoneMaskingDirective,CommonGridComponent
+  ]
 })
 export class SettingsModule {}

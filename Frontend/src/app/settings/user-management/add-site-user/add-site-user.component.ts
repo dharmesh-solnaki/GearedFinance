@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+
+
 
 import {
   dateSelectonMenu,
@@ -10,6 +13,7 @@ import {
   RoleEnum,
   vendorSelectionMenu,
   validationRegexes,
+  MonthEnum,
 } from 'src/app/Shared/constants.model';
 
 @Component({
@@ -23,7 +27,12 @@ export class AddSiteUserComponent implements OnInit {
   selectMenuMonth: selectMenu[] = [];
   selectMenuDate: selectMenu[] = [];
   selectionVendors: string[] = [];
-  addUserFrom: FormGroup = new FormGroup({});
+
+  defaultDateSelection: selectMenu[] = [];
+  defaultMonthSelection: selectMenu[] = [];
+  addUserForm: FormGroup = new FormGroup({});
+  
+
 
   constructor(private _fb: FormBuilder) {
     this.formInitializer();
@@ -33,12 +42,35 @@ export class AddSiteUserComponent implements OnInit {
     this.selectMenuRoles = roleSelectionMenu;
     this.selectMenuVendors = vendorSelectionMenu;
     this.selectMenuNotificationPref = notificationPreSelectionMenu;
-    this.selectMenuMonth = monthSelectonMenu();
-    this.selectMenuDate = dateSelectonMenu();
+    // this.selectMenuMonth = monthSelectonMenu(-1);
+    // this.selectMenuDate = dateSelectonMenu(31);
+
+    this.defaultDateSelection = dateSelectonMenu(31);
+    this.defaultMonthSelection = monthSelectonMenu(-1);
+    this.selectMenuMonth = this.defaultMonthSelection;
+    this.selectMenuDate = this.defaultDateSelection;
+    this.addFormBirthHandler();
+  }
+
+  addFormBirthHandler() {
+     this.addUserForm.get('month')?.valueChanges.subscribe((selectedMonth) => {
+      const daysInMonth = this.getDaysInMonth(selectedMonth);
+      // const tempdata:selectMenu[]=[]
+
+      // this.addUserDaySelection.updateTheOptionData(tempdata)
+      this.selectMenuDate = this.defaultDateSelection.filter(
+        (x) => Number(x.value) <= daysInMonth
+      );
+    });
+
+    this.addUserForm.get('day')?.valueChanges.subscribe((selectedDay) => {
+
+      this.updateMonthSelection(selectedDay);
+    });
   }
 
   formInitializer() {
-    this.addUserFrom = this._fb.group({
+    this.addUserForm = this._fb.group({
       name: ['', [Validators.required]],
       surname: ['', [Validators.required]],
       email: [
@@ -48,7 +80,7 @@ export class AddSiteUserComponent implements OnInit {
           Validators.pattern(validationRegexes.EMAIL_REGEX),
         ],
       ],
-      password: [''],
+      password: ['', [Validators.pattern(validationRegexes.PASSWORD_REGEX)]],
       role: ['Select', Validators.required],
       vendor: ['Select', [Validators.required]],
       notificationPref: ['None', [Validators.required]],
@@ -70,16 +102,58 @@ export class AddSiteUserComponent implements OnInit {
     });
   }
 
+  getDaysInMonth(month: number): number {
+    switch (month) {
+      case MonthEnum.Feb:
+        return this.isLeapYear(new Date().getFullYear()) ? 29 : 28;
+      case MonthEnum.Apr:
+      case MonthEnum.Jun:
+      case MonthEnum.Sep:
+      case MonthEnum.Nov:
+        return 30;
+      default:
+        return 31;
+    }
+  }
+
+  isLeapYear(year: number): boolean {
+    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+  }
+
+  updateDateSelection(daysInMonth: number) {
+    if (daysInMonth === -1) {
+      this.selectMenuDate = this.defaultDateSelection;
+    } else {
+      this.selectMenuDate = this.selectMenuDate.filter(
+        (x) => +x.value <= daysInMonth
+      );
+    }
+  }
+
+  updateMonthSelection(selectedDay: number) {
+    if (selectedDay > 0 ) {
+      const validMonths = this.defaultMonthSelection.filter((month) => {
+        const daysInMonth = this.getDaysInMonth(+month.value);
+        return selectedDay <= daysInMonth;
+      });
+      this.selectMenuMonth = validMonths;
+    } else {
+      this.selectMenuMonth = this.defaultMonthSelection;
+    }
+    console.log(this.selectMenuMonth)
+  }
+
   isFieldVisible(field: string) {
-    const role = this.addUserFrom.get('role')?.value;
+    const role = this.addUserForm.get('role')?.value;
 
     switch (field) {
       case 'password':
         return (
-          role == RoleEnum.GearedAdmin ||
-          role == RoleEnum.GearedSuperAdmin ||
-          role == RoleEnum.VendorSalesRep
-        )  &&   this.addUserFrom.get('portalLogin')?.value ;
+          (role == RoleEnum.GearedAdmin ||
+            role == RoleEnum.GearedSuperAdmin ||
+            role == RoleEnum.GearedSalesRep) &&
+          this.addUserForm.get('portalLogin')?.value
+        );
       case 'vendor':
         return (
           role == RoleEnum.VendorSalesRep ||
@@ -129,7 +203,7 @@ export class AddSiteUserComponent implements OnInit {
         return role == RoleEnum.VendorManager;
 
       case 'roleOptionsGearedSuperAdmin':
-        return role == RoleEnum.GearedSuperAdmin;    
+        return role == RoleEnum.GearedSuperAdmin;
 
       default:
         return true;
@@ -138,87 +212,93 @@ export class AddSiteUserComponent implements OnInit {
 
   addUserFormHandler() {
     this.isFieldRequired();
-    if (this.addUserFrom.invalid) {
-      this.addUserFrom.markAllAsTouched();
+    if (this.addUserForm.invalid) {
+      this.addUserForm.markAllAsTouched();
       return;
     }
 
-    console.log(this.addUserFrom.value);
+    console.log(this.addUserForm.value);
   }
 
   hasError(field: string, error: string) {
-    const control = this.addUserFrom.get(field);
+    const control = this.addUserForm.get(field);
 
     return control?.hasError(error) && control?.touched;
   }
 
   isFieldRequired() {
-    const role = this.addUserFrom.get('role')?.value;
+    const role = this.addUserForm.get('role')?.value;
 
     if (role == 'Select') {
-      this.addUserFrom.get('role')?.setErrors({ required: true });
+      this.addUserForm.get('role')?.setErrors({ required: true });
 
       // this.addUserRoleSelection.isFieldRequired = true;
     } else {
-      this.addUserFrom.get('role')?.setErrors({ required: false });
+      this.addUserForm.get('role')?.setErrors({ required: false });
 
       // this.addUserRoleSelection.isFieldRequired = false;
     }
 
     if (
-      this.addUserFrom.get('vendor')?.value == 'Select' &&
+      this.addUserForm.get('vendor')?.value == 'Select' &&
       (role == RoleEnum.VendorSalesRep ||
         role == RoleEnum.VendorManager ||
         role == RoleEnum.VendorGuestUser)
     ) {
-      this.addUserFrom.get('vendor')?.setErrors({ required: true });
+      this.addUserForm.get('vendor')?.setErrors({ required: true });
       // this.addUserVendorSelection.isFieldRequired = true;
     } else {
-      this.addUserFrom.get('vendor')?.setErrors({ required: false });
+      this.addUserForm.get('vendor')?.setErrors({ required: false });
       // this.addUserVendorSelection.isFieldRequired = false;
     }
 
     if (
-      this.addUserFrom.get('vendorManagerLevel')?.value == 'Select' &&
+      this.addUserForm.get('vendorManagerLevel')?.value == 'Select' &&
       role == RoleEnum.VendorManager
     ) {
-      this.addUserFrom.get('vendorManagerLevel')?.setErrors({ required: true });
+      this.addUserForm.get('vendorManagerLevel')?.setErrors({ required: true });
       // this.addUserVendorManagerLevelSelection.isFieldRequired = true;
     } else {
-      this.addUserFrom
+      this.addUserForm
         .get('vendorManagerLevel')
         ?.setErrors({ required: false });
       // this.addUserVendorManagerLevelSelection.isFieldRequired = false;
     }
 
     if (
-      this.addUserFrom.get('reportTo')?.value == 'Select' &&
+      this.addUserForm.get('reportTo')?.value == 'Select' &&
       (role == RoleEnum.VendorSalesRep ||
         role == RoleEnum.VendorManager ||
         role == RoleEnum.VendorGuestUser)
     ) {
-      this.addUserFrom.get('reportTo')?.setErrors({ required: true });
+      this.addUserForm.get('reportTo')?.setErrors({ required: true });
       // this.addUserReportToSelection.isFieldRequired = true;
     } else {
-      this.addUserFrom.get('reportTo')?.setErrors({ required: false });
+      this.addUserForm.get('reportTo')?.setErrors({ required: false });
       // this.addUserReportToSelection.isFieldRequired = false;
     }
 
     if (
-      this.addUserFrom.get('relationshipManager')?.value == 'Select' &&
+      this.addUserForm.get('relationshipManager')?.value == 'Select' &&
       (role == RoleEnum.VendorSalesRep ||
         role == RoleEnum.VendorManager ||
         role == RoleEnum.VendorGuestUser)
     ) {
-      this.addUserFrom
+      this.addUserForm
         .get('relationshipManager')
         ?.setErrors({ required: true });
       // this.addUserRelationshipManagerSelection.isFieldRequired = true;
     } else {
-      this.addUserFrom
+      this.addUserForm
         .get('relationshipManager')
         ?.setErrors({ required: false });
       // this.addUserRelationshipManagerSelection.isFieldRequired = false;
     }
+  }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+
   }
 }

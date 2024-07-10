@@ -1,6 +1,6 @@
 <div class="setting-wrapper">
-  <div class="row setting-wrapper-row">
-    <div class="col-auto pe-3 setting-left-div"
+  <div class="row setting-wrapper-row ">
+    <div class=" col-auto setting-left-div"
      [ngClass]="!isSdiebarVisible?'d-block' : 'd-none'"
     >
       <p class="settingTitleText mb-1">SYSTEM PROPERITES</p>
@@ -30,12 +30,9 @@
         </li>
       </ul>
     </div>
-    <div class="col setting-right-div">
-
-    <!-- <app-user-management></app-user-management> -->
+    <div class="col  setting-right-div">  
      <router-outlet></router-outlet>
-
-    </div>
+        </div>
   </div>
   <button
     class="btn btn-primary d-none"

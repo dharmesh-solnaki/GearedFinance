@@ -3,7 +3,7 @@
 </div>
 
 <div class="">
-  <form [formGroup]="addUserFrom" (ngSubmit)="addUserFormHandler()">
+  <form [formGroup]="addUserForm" (ngSubmit)="addUserFormHandler()">
     <div class="row">
       <div class="col-lg-3 col-md-6 col-sm-12 mt-3 form-group">
         <label class="form-label"
@@ -185,7 +185,11 @@
           type="password"
           formControlName="password"
           class="form-control"
+          maxlength="30"
         />
+        <div *ngIf="hasError('password', 'pattern')" class="text-danger">
+          Invalid password format [Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character ]
+        </div>
       </div>
     </div>
     <div class="row">
@@ -228,6 +232,7 @@
         <label class="form-label">Date Of Birth</label>
         <div class="d-flex gap-2 justify-content-between">
           <app-common-selectmenu
+          #addUserDaySelection
             class="w-100"
             [optionData]="selectMenuDate"
             defaultOption="Day"

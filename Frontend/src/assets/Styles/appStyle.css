@@ -73,7 +73,7 @@ ul {
 }
 .form-control:invalid:focus {
   border-color: #dc3545 !important;
-  box-shadow: 0 0 0 0.2rem rgba(220,53,69,.25);
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
 input.ng-invalid.ng-touched {
   border-color: #dc3545 !important;
@@ -81,10 +81,26 @@ input.ng-invalid.ng-touched {
 /* .requiredFormField{
   border-color: #dc3545 !important;
 } */
-.ng-in-valid>div> button {
+.ng-in-valid > div > button {
   border-color: #dc3545 !important;
 }
+.nav-link {
+  color: black !important;
+}
 
+.page-link {
+  background-color: white !important;
+}
+.page-link:focus {
+  background-color: #6c7e8f !important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 174, 123, 0.2) !important;
+  color: white !important;
+}
+button:disabled {
+  background-color: unset !important;
+
+  border-color: unset !important;
+}
 /* app-header starts */
 .appheader {
   position: absolute;
@@ -96,7 +112,7 @@ input.ng-invalid.ng-touched {
 .logodiv {
   width: 13rem;
   position: fixed;
-  
+
   height: 4.8rem;
   margin-right: 3rem;
   background-color: black;
@@ -213,7 +229,6 @@ input.ng-invalid.ng-touched {
   bottom: 10%;
   /* margin-top: calc(100vh - 823px + 15rem); */
   margin-left: 9.5rem;
-  
 }
 .navrightbtn {
   background-image: url("../../assets/Images/ic-nav-right.svg");
@@ -222,9 +237,8 @@ input.ng-invalid.ng-touched {
   position: absolute;
   /* margin-top: calc(100vh - 823px + 15rem); */
   bottom: 10%;
-  
-  margin-left: 1rem;
 
+  margin-left: 1rem;
 }
 .offcanvas.offcanvas-start {
   width: 13rem !important;
@@ -234,23 +248,26 @@ input.ng-invalid.ng-touched {
 
 /* Settings module syles */
 .setting-wrapper {
-  max-height: 42.813rem;
-  min-height: 42.813rem; 
-  
-  position: relative;
-  padding: 1.875rem;
+  max-height: 43.29rem;
+  min-height: 43.29rem;
+
+  /* position: relative; */
 }
 .setting-wrapper-row {
+  width: auto;
   max-height: inherit;
-  min-height: calc(42.813rem - 1.875rem); 
+  min-height: inherit;
+  padding: 1rem;
 }
 
 .settingTitleText {
   font-size: 0.877rem;
   font-weight: 700;
 }
-.setting-leftdiv {
-  border-right: 1px solid;
+.setting-left-div {
+  width: 10.938rem;
+  padding-right: 0%;
+  border-right: 1px solid black;
 }
 .setting-ul {
   list-style-type: none;
@@ -276,7 +293,7 @@ input.ng-invalid.ng-touched {
   width: 100%;
 }
 .setting-right-div {
-  border-left: 1px solid #2e2e2e;
+  max-width: calc(100% - 12rem);
 }
 .inner-page-heading {
   border-bottom: 1px solid;
@@ -316,7 +333,7 @@ input.ng-invalid.ng-touched {
   text-align: left;
   padding: 0.3rem 3rem 0.6rem 0.5rem;
   overflow: hidden;
-  white-space: nowrap; 
+  white-space: nowrap;
   text-overflow: ellipsis;
 }
 .dropdownImage {
@@ -366,8 +383,7 @@ input.ng-invalid.ng-touched {
 .filter-textbox {
   border-bottom: 1px solid #ccc;
   position: relative;
-  padding: 5px  !important;
-
+  padding: 5px !important;
 }
 /* .filter-textbox input ,
   .filter-textbox input:focus-visible
@@ -397,8 +413,8 @@ input.ng-invalid.ng-touched {
 }
 
 /*----pagination----- */
-.page-link{
-  border:none !important;
+.page-link {
+  border: none !important;
   color: #34495e !important;
   font-weight: 500;
 }
@@ -409,8 +425,8 @@ input.ng-invalid.ng-touched {
     background-color: rgb(211, 170, 95);
   }
 }
-@media (min-width:426px) {
-  .setting-left-div{
+@media (min-width: 426px) {
+  .setting-left-div {
     display: block !important;
   }
 }
@@ -436,30 +452,28 @@ input.ng-invalid.ng-touched {
     display: none;
   }
 
-
-
   /* settings- styles */
   .setting-wrapper {
     padding: 0%;
     height: 100%;
     max-height: unset;
-    min-height:unset;
+    min-height: unset;
     /* position: relative; */
   }
 
-  .setting-wrapper-row{
-   position: relative;
-   height: 100%;
-   max-height: unset;
-   min-height:unset;
+  .setting-wrapper-row {
+    /* position: relative; */
+    /* height: 100%; */
+    max-height: unset;
+    min-height: unset;
   }
 
   .setting-left-div {
     position: absolute;
     top: 0;
     z-index: 100;
-    height: 100%;
-    margin-left: 1rem;
+    height : 100%;
+    /* margin-left: 1rem; */
     /* margin-left: 0px !important; */
     background-color: white;
     border-right: 1px solid black;
@@ -468,7 +482,7 @@ input.ng-invalid.ng-touched {
   .setting-menushow {
     display: block !important;
     position: absolute;
-    left: 9.6rem;
+    left: 11rem;
     top: 4rem;
     z-index: 150;
     padding: 0.4rem;
@@ -488,38 +502,38 @@ input.ng-invalid.ng-touched {
     border-bottom-right-radius: 0.4rem;
   }
   .setting-right-div {
-    padding: 2rem !important;
+   padding: 1rem ;
+    max-width: 100%;
+
     height: 100%;
+
     border-left: none;
   }
 }
 
-
-@media (max-height:492px) {
-  .menubar{
-    height: 13rem ;
+@media (max-height: 492px) {
+  .menubar {
+    height: 13rem;
     overflow: scroll;
     position: relative;
   }
-  .menubar>ul{
+  .menubar > ul {
     margin-top: 0.5rem !important;
   }
- 
 }
 
-@media (max-height:380px) {
-
-  .menubar{
-    height: 5rem ;
+@media (max-height: 380px) {
+  .menubar {
+    height: 5rem;
     overflow: scroll;
     position: relative;
   }
-  .navleftbtn{
+  .navleftbtn {
     position: absolute;
     right: 0.5rem;
     bottom: 0.5rem;
   }
-   .navrightbtn{
+  .navrightbtn {
     position: absolute;
     right: 0.5rem;
     bottom: 0.5rem;

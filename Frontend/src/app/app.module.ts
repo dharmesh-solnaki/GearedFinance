@@ -4,8 +4,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppHeaderModule } from './app-header/app-header.module';
 import { RouterModule, Routes } from '@angular/router';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { SettingsModule } from './settings/settings.module';
-import { PhoneMaskingDirective } from './Directives/phone-masking.directive';
+
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent },
@@ -19,6 +20,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    
+   
     // PhoneMaskingDirective
     ],
   providers: [],
@@ -27,8 +30,8 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     AppHeaderModule,
-    RouterModule.forRoot(appRoutes),
-    SettingsModule,
+    RouterModule.forRoot(appRoutes),  
+    NgbPaginationModule
     
   ],
   // exports:[

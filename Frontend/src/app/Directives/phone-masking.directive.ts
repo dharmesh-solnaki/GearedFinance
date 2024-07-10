@@ -4,7 +4,7 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
   selector: '[appPhoneMasking]',
 })
 export class PhoneMaskingDirective {
-  constructor() {}
+  constructor(private el: ElementRef<HTMLInputElement>) {}
 
   @HostListener('input', ['$event']) onInput(event: Event) {
     const input = event.target as HTMLInputElement;
