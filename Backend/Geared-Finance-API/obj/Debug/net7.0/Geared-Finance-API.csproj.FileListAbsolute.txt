@@ -3,7 +3,6 @@ D:\GearedFinance\Backend\Geared-Finance-API\obj\Debug\net7.0\Geared-Finance-API.
 D:\GearedFinance\Backend\Geared-Finance-API\obj\Debug\net7.0\Geared-Finance-API.AssemblyInfoInputs.cache
 D:\GearedFinance\Backend\Geared-Finance-API\obj\Debug\net7.0\Geared-Finance-API.AssemblyInfo.cs
 D:\GearedFinance\Backend\Geared-Finance-API\obj\Debug\net7.0\Geared-Finance-API.csproj.CoreCompileInputs.cache
-D:\GearedFinance\Backend\Geared-Finance-API\obj\Debug\net7.0\Geared-Finance-API.MvcApplicationPartsAssemblyInfo.cs
 D:\GearedFinance\Backend\Geared-Finance-API\obj\Debug\net7.0\Geared-Finance-API.MvcApplicationPartsAssemblyInfo.cache
 D:\GearedFinance\Backend\Geared-Finance-API\bin\Debug\net7.0\appsettings.Development.json
 D:\GearedFinance\Backend\Geared-Finance-API\bin\Debug\net7.0\appsettings.json

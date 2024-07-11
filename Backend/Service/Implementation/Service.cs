@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 
 namespace Service.Implementation
 {
-    public class Sevice :IService
+    public class Service : IService
     {
 
         private readonly IRepo _repo;
-        public Sevice(IRepo repo)
+        public Service(IRepo repo)
         {
                _repo = repo;
         }
+
+        
     }
 }

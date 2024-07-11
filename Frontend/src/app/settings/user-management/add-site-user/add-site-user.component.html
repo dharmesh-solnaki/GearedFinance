@@ -140,6 +140,7 @@
               type="radio"
               formControlName="roleStatus"
               [value]="false"
+              (click)="roleStatusChangeHandler()"
             />
             <span class="input-group-text">Inactive</span>
           </label>
@@ -238,6 +239,7 @@
             defaultOption="Day"
             [needsSearching]="true"
             formControlName="day"
+            [ngClass]="{ 'ng-in-valid': hasError('day', 'required') }"
           >
           </app-common-selectmenu>
           <app-common-selectmenu
@@ -247,6 +249,7 @@
             defaultOption="Month"
             [needsSearching]="true"
             formControlName="month"
+            [ngClass]="{ 'ng-in-valid': hasError('month', 'required') }"
           >
           </app-common-selectmenu>
         </div>

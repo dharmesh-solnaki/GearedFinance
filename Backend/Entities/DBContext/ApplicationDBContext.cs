@@ -1,54 +1,61 @@
-﻿
-using Entities.Model;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Entities.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace Entities.DBContext
+namespace Entities.DBContext;
+
+public partial class ApplicationDBContext : DbContext
 {
-    public class ApplicationDBContext : DbContext
+    public ApplicationDBContext()
     {
-        public ApplicationDBContext()
-        {
-        }
-        public ApplicationDBContext(DbContextOptions options) : base(options)
-        {
-
-        }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-
-        => optionsBuilder.UseNpgsql("User ID=postgres;Password=root;Server=localhost;Port=5432;Database=GearedFinance;Pooling=true;");
-
-
-        public  DbSet<User> Users { get; set; }
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<Vendor> Vendors { get; set; }
-       
-        public DbSet<ManagerLevel> ManagerLevels { get; set; }
-
-
-
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            // Configure Vendor entity
-            modelBuilder.Entity<Vendor>().ToTable("Vendors");
-            modelBuilder.Entity<Vendor>().Property(v => v.name).HasColumnType("varchar(100)").IsRequired();
-
-            // Seed initial data
-            modelBuilder.Entity<Vendor>().HasData(
-                new Vendor {Id=1, name = "Vendor A" },
-                new Vendor { Id = 2, name = "Vendor B" },
-                new Vendor { Id = 3, name = "Vendor C" }
-            );
-
-            
-        }
-
     }
+
+    public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options)
+        : base(options)
+    {
+    }
+
+    public virtual DbSet<ManagerLevel> ManagerLevels { get; set; }
+
+    public virtual DbSet<Role> Roles { get; set; }
+
+    public virtual DbSet<User> Users { get; set; }
+
+    public virtual DbSet<Vendor> Vendors { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseNpgsql("User ID = postgres;Password=root;Server=localhost;Port=5432;Database=GearedFinance;Integrated Security=true;Pooling=true;");
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<ManagerLevel>(entity =>
+        {
+            entity.HasOne(d => d.Vendor).WithMany(p => p.ManagerLevels).HasConstraintName("FK_ManagerLevels_Vendors_ManagerId");
+        });
+
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.Property(e => e.IsCalcRateEditor).HasDefaultValueSql("true");
+            entity.Property(e => e.IsFunderProfile).HasDefaultValueSql("true");
+            entity.Property(e => e.IsPortalLogin).HasDefaultValueSql("false");
+            entity.Property(e => e.IsProceedBtnInApp).HasDefaultValueSql("true");
+            entity.Property(e => e.IsSendEndOfTermReport).HasDefaultValueSql("true");
+            entity.Property(e => e.IsUserInGafsalesRepList).HasDefaultValueSql("false");
+            entity.Property(e => e.IsUserInVendorSalesRepList).HasDefaultValueSql("true");
+            entity.Property(e => e.Status).HasDefaultValueSql("true");
+            entity.Property(e => e.UnassignedApplications).HasDefaultValueSql("true");
+
+            entity.HasOne(d => d.Role).WithOne(p => p.User)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Users_Roles_RolesId");
+
+            entity.HasOne(d => d.Vendor).WithOne(p => p.User).OnDelete(DeleteBehavior.Cascade);
+        });
+
+        OnModelCreatingPartial(modelBuilder);
+    }
+
+    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

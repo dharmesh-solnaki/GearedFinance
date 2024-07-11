@@ -23,7 +23,7 @@ export class UserManagementComponent implements OnInit {
   paginationSettings!: PaginationSetting;
   userHeaderSearchForm: FormGroup;
   defaultUserData: any[] = [];
-  
+
   @ViewChild('roleSelectionMenu') roleSelectionMenu!: CommonSelectmenuComponent;
 
   constructor(private _fb: FormBuilder) {
@@ -81,16 +81,31 @@ export class UserManagementComponent implements OnInit {
     this.roleSelectionMenu.resetElement();
     this.paginationSetter();
   }
+  // sortHandler(ev: SortConfiguration) {
+  //   const { sort, sortOrder } = ev;
+  //   this.userData = this.userData.sort((a, b) => {
+  //     if (a[sort] > b[sort]) {
+  //       return sortOrder === SortOrder.ASC ? 1 : -1;
+  //     } else if (a[sort] < b[sort]) {
+  //       return sortOrder === SortOrder.ASC ? -1 : 1;
+  //     } else {
+  //       return 0;
+  //     }
+  //   });
+  // }
   sortHandler(ev: SortConfiguration) {
     const { sort, sortOrder } = ev;
     this.userData = this.userData.sort((a, b) => {
-      if (a[sort] > b[sort]) {
-        return sortOrder === SortOrder.ASC ? 1 : -1;
-      } else if (a[sort] < b[sort]) {
-        return sortOrder === SortOrder.ASC ? -1 : 1;
-      } else {
-        return 0;
-      }
+      const aValue = a[sort];
+      const bValue = b[sort];
+  
+      if (typeof aValue === 'number' && typeof bValue === 'number') {
+        return sortOrder === SortOrder.ASC ? aValue - bValue : bValue - aValue;
+      } else   {
+        return sortOrder === SortOrder.ASC 
+          ? aValue.localeCompare(bValue) 
+          : bValue.localeCompare(aValue);
+      } 
     });
   }
 }

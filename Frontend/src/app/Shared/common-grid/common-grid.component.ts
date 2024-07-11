@@ -4,6 +4,7 @@ import {
   Input,
   Output,
   SimpleChanges,
+  ViewChild,
 } from '@angular/core';
 import {
   IGridSettings,
@@ -12,6 +13,7 @@ import {
   SortOrder,
 } from './common-grid.model';
 import { selectMenu } from '../constants.model';
+import { CommonSelectmenuComponent } from '../common-selectmenu/common-selectmenu.component';
 
 @Component({
   selector: 'app-common-grid',
@@ -19,7 +21,7 @@ import { selectMenu } from '../constants.model';
   styleUrls: ['./common-grid.component.css'],
 })
 export class CommonGridComponent {
-  public girdSettings: IGridSettings;
+  public _gridSettings: IGridSettings;
   public paginationSetting!: PaginationSetting;
   public showPagination: boolean = true;
   public pageSize!: number;
@@ -41,32 +43,27 @@ export class CommonGridComponent {
     selectedPageSize: ['25 per page'],
   };
 
+  @ViewChild('pageSizerChild') pageSizerChild!:CommonSelectmenuComponent
+
   /**
    *
    */
   constructor() {
-    this.girdSettings = this.defaultSettings
-    
+    this._gridSettings = this.defaultSettings;
   }
 
   @Input() data: any[] = [];
   @Input() public set gridSettings(value: IGridSettings) {
-    
-    if(value){
-      this.girdSettings = value;
-      console.log(this.girdSettings)
-    }else{
-      this.girdSettings = Object.assign(this.defaultSettings)
+    if (value) {
+      this._gridSettings = value;
+
+    } else {
+      this._gridSettings = Object.assign(this.defaultSettings);
     }
 
-    if (
-      value  &&
-      value.showPagination &&
-      !value.showPagination
-    ) {
+    if (value && value.showPagination && !value.showPagination) {
       this.showPagination = value.showPagination;
     }
-    ;
   }
 
   @Input() public set paginationSettings(value: PaginationSetting) {
@@ -87,65 +84,48 @@ export class CommonGridComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.this.
-  
+
     this.updateDisplayedData();
-    this.pagSizeSetter();
+    // this.pagSizeSetter();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.updateDisplayedData();
-    this.updatePageNumbers();
     this.pagSizeSetter();
+    this.updatePageNumbers();
   }
-
+  pageSizeChangeHandler(ev:number|string){
+   this.pageSize=+ev
+   this.paginationSetting.currentPage=1
+   this.updateDisplayedData();
+    this.updatePageNumbers();
+   
+  }
   // -----------Sorting----------------
-  public sortOrder = SortOrder.ASC;
+  public sortOrder: SortOrder = SortOrder.ASC;
   public previousSort: string = '';
-  public previousSortOrder = SortOrder.Default;
+
   sort(col: string, sort: boolean) {
     if (sort) {
-      if (col === this.previousSort) {
-        this.sortOrder =
-          this.previousSortOrder == SortOrder.ASC
-            ? SortOrder.DESC
-            : SortOrder.ASC;
-      } else {
-        this.sortOrder = SortOrder.ASC;
-      }
+      this.sortOrder = (col === this.previousSort && this.sortOrder === SortOrder.ASC)
+        ? SortOrder.DESC
+        : SortOrder.ASC;
+
       this.previousSort = col;
-      this.previousSortOrder = this.sortOrder;
 
-      let sortDetails = new SortConfiguration();
-      sortDetails.sort = col;
-      sortDetails.sortOrder = this.sortOrder;
-
+      const sortDetails: SortConfiguration = { sort: col, sortOrder: this.sortOrder };
       this.onSortEvent.emit(sortDetails);
       this.updateDisplayedData();
+      this.paginationSettings.currentPage=1
     }
   }
-  sortUp(columnName: string) {
-    return (
-      this.previousSort == columnName &&
-      this.previousSortOrder == SortOrder.DESC
-    );
-  }
-  sortDown(columnName: string) {
-    return (
-      this.previousSort == columnName && this.previousSortOrder == SortOrder.ASC
-    );
-  }
-  sortDefault(columnName: string) {
-    return (
-      this.previousSortOrder == SortOrder.Default ||
-      this.previousSort != columnName
-    );
-  }
+ 
 
   ///-----------------pagination
 
   isShowPagination() {
     return (
-      this.girdSettings.showPagination &&
+      this._gridSettings.showPagination &&
       this.displayData.length > 0 &&
       this.paginationSetting.totalRecords > this.pageSize
     );
@@ -183,6 +163,7 @@ export class CommonGridComponent {
     this.paginationSetting.currentPage = page;
     this.updateDisplayedData();
   }
+
   updatePageNumbers() {
     const totalPages = Math.ceil(
       this.paginationSetting.totalRecords / +this.pageSize
@@ -191,10 +172,13 @@ export class CommonGridComponent {
   }
 
   pagSizeSetter() {
-    if (this.gridSettings && this.gridSettings.pageSizeValues) {
-      this.gridSettings.pageSizeValues.forEach((item) => {
-        console.log(item);
+    if (this._gridSettings && this._gridSettings.pageSizeValues) {
+      this._gridSettings.pageSizeValues.forEach((item) => {
+   
+        this.pageSizeOptions.push({ option: item.text, value: item.pageNo });
       });
     }
+    this.pageSize = +this.pageSizeOptions[0].value
+
   }
 }

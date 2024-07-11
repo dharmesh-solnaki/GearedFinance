@@ -2,7 +2,7 @@
 
    height: 100%;
   padding: 6.25rem 1.25rem 1.25rem 14rem;
-  /* overflow-y: scroll; */
+
 }
 
 
@@ -10,7 +10,7 @@
 .card { 
   /* width: 100%; */
   width: auto;
-  height: inherit;
+  height: 100%;
   /* height: calc(100% - 6.25rem + 1.25rem); */
   box-shadow: 0 5px 27px rgba(0, 0, 0, 0.27);
 

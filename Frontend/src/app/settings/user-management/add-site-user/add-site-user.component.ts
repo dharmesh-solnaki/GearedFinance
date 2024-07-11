@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
+
 
 
 
@@ -27,7 +27,6 @@ export class AddSiteUserComponent implements OnInit {
   selectMenuMonth: selectMenu[] = [];
   selectMenuDate: selectMenu[] = [];
   selectionVendors: string[] = [];
-
   defaultDateSelection: selectMenu[] = [];
   defaultMonthSelection: selectMenu[] = [];
   addUserForm: FormGroup = new FormGroup({});
@@ -84,7 +83,7 @@ export class AddSiteUserComponent implements OnInit {
       role: ['Select', Validators.required],
       vendor: ['Select', [Validators.required]],
       notificationPref: ['None', [Validators.required]],
-      month: [''],
+      month: [0],
       day: [0],
       mobileNumber: ['', [Validators.required]],
       roleStatus: [true],
@@ -226,6 +225,12 @@ export class AddSiteUserComponent implements OnInit {
     return control?.hasError(error) && control?.touched;
   }
 
+  roleStatusChangeHandler(){
+    
+    if(this.addUserForm.get('roleStatus')?.value){
+      this.addUserForm.controls['portalLogin'].setValue(false)
+    }
+  }
   isFieldRequired() {
     const role = this.addUserForm.get('role')?.value;
 
@@ -293,6 +298,29 @@ export class AddSiteUserComponent implements OnInit {
         .get('relationshipManager')
         ?.setErrors({ required: false });
       // this.addUserRelationshipManagerSelection.isFieldRequired = false;
+    }
+
+    if( this.addUserForm.get('day')?.value == 0 && role == RoleEnum.VendorSalesRep ||
+    role == RoleEnum.VendorManager ||
+    role == RoleEnum.VendorGuestUser ){
+      this.addUserForm
+      .get('day')
+      ?.setErrors({ required: true });
+    }else{
+      this.addUserForm
+      .get('day')
+      ?.setErrors({ required: false });
+    }  
+     if( this.addUserForm.get('month')?.value == 0 && role == RoleEnum.VendorSalesRep ||
+    role == RoleEnum.VendorManager ||
+    role == RoleEnum.VendorGuestUser ){
+      this.addUserForm
+      .get('month')
+      ?.setErrors({ required: true });
+    }else{
+      this.addUserForm
+      .get('month')
+      ?.setErrors({ required: false });
     }
   }
 

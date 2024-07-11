@@ -1,4 +1,5 @@
-﻿using Entities.DBContext;
+﻿
+using Entities.DBContext;
 using Repository.Interface;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,12 @@ namespace Repository.Implementation
 {
     public class Repo : IRepo
     {
-       
+        private ApplicationDBContext _db;
+        public Repo(ApplicationDBContext db)
+        {
+            _db = db;
+        }
+
+        
     }
 }

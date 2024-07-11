@@ -9,6 +9,7 @@
       "Geared-Finance-API/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": "7.0.11",
+          "Microsoft.EntityFrameworkCore": "7.0.20",
           "Microsoft.EntityFrameworkCore.Design": "7.0.20",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.18",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.18",
@@ -245,6 +246,7 @@
       },
       "Entities/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.20",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.18"
         },
         "runtime": {

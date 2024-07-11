@@ -128,7 +128,7 @@ export const monthSelectonMenu = (month: number): selectMenu[] => {
         monthArray.push({ option: key, value: value });
       }
     });
-    console.log(monthArray)
+
     return monthArray;
   }
 

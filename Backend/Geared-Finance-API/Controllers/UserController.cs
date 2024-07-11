@@ -10,6 +10,12 @@ namespace Geared_Finance_API.Controllers
     {
         private readonly IService _service;
 
-        
+        public UserController(IService service)
+        {
+            _service = service;
+        }
+
+    
+     
     }
 }

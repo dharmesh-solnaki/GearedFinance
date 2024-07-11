@@ -6,6 +6,8 @@ import {
   ElementRef,
   forwardRef,
   SimpleChanges,
+  EventEmitter,
+  Output,
 } from '@angular/core';
 import { selectMenu } from '../constants.model';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -29,6 +31,7 @@ export class CommonSelectmenuComponent implements OnInit, ControlValueAccessor {
   @Input() optionData: selectMenu[] = [];
   @Input() defaultOption: string = '';
   @Input() needsSearching: boolean = false;
+ @Output() valueChangeEmitter = new EventEmitter<number|string>()
   selectedValue: string | number = '';
   selectedOption: string | number = '';
   isMenuOpen: boolean = false;
@@ -87,6 +90,7 @@ this.workingOptionData = this.optionData;
     this.isMenuOpen = false;
     this.onChange(this.selectedValue);
     this.onTouched();
+    this.valueChangeEmitter.emit(item.value)
   }
 
   resetElement() {
