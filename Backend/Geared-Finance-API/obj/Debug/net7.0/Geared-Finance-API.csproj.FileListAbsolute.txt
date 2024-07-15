@@ -11,6 +11,7 @@ D:\GearedFinance\Backend\Geared-Finance-API\bin\Debug\net7.0\Geared-Finance-API.
 D:\GearedFinance\Backend\Geared-Finance-API\bin\Debug\net7.0\Geared-Finance-API.runtimeconfig.json
 D:\GearedFinance\Backend\Geared-Finance-API\bin\Debug\net7.0\Geared-Finance-API.dll
 D:\GearedFinance\Backend\Geared-Finance-API\bin\Debug\net7.0\Geared-Finance-API.pdb
+D:\GearedFinance\Backend\Geared-Finance-API\bin\Debug\net7.0\AutoMapper.dll
 D:\GearedFinance\Backend\Geared-Finance-API\bin\Debug\net7.0\Humanizer.dll
 D:\GearedFinance\Backend\Geared-Finance-API\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
 D:\GearedFinance\Backend\Geared-Finance-API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
@@ -29,9 +30,11 @@ D:\GearedFinance\Backend\Geared-Finance-API\bin\Debug\net7.0\System.CodeDom.dll
 D:\GearedFinance\Backend\Geared-Finance-API\bin\Debug\net7.0\Entities.dll
 D:\GearedFinance\Backend\Geared-Finance-API\bin\Debug\net7.0\Repository.dll
 D:\GearedFinance\Backend\Geared-Finance-API\bin\Debug\net7.0\Service.dll
+D:\GearedFinance\Backend\Geared-Finance-API\bin\Debug\net7.0\Utilities.dll
 D:\GearedFinance\Backend\Geared-Finance-API\bin\Debug\net7.0\Service.pdb
 D:\GearedFinance\Backend\Geared-Finance-API\bin\Debug\net7.0\Entities.pdb
 D:\GearedFinance\Backend\Geared-Finance-API\bin\Debug\net7.0\Repository.pdb
+D:\GearedFinance\Backend\Geared-Finance-API\bin\Debug\net7.0\Utilities.pdb
 D:\GearedFinance\Backend\Geared-Finance-API\obj\Debug\net7.0\staticwebassets\msbuild.Geared-Finance-API.Microsoft.AspNetCore.StaticWebAssets.props
 D:\GearedFinance\Backend\Geared-Finance-API\obj\Debug\net7.0\staticwebassets\msbuild.build.Geared-Finance-API.props
 D:\GearedFinance\Backend\Geared-Finance-API\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Geared-Finance-API.props

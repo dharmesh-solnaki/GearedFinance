@@ -1,6 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Entities.DTOs;
+using Entities.Enums;
+using Entities.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interface;
+using System.Globalization;
 
 namespace Geared_Finance_API.Controllers
 {
@@ -8,13 +13,35 @@ namespace Geared_Finance_API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IService _service;
+        private readonly IUserService _Service;
 
-        public UserController(IService service)
+        public UserController(IUserService Service)
         {
-            _service = service;
+            _Service = Service;
         }
 
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll( string? name,  string? roleName,  int pageNumber, int pageSize)
+        {
+            IEnumerable<UserDTO> userData = await _Service.GetAllUsersAsync( name,  roleName,  pageNumber, pageSize);
+            if (!userData.Any())
+            {
+                return NotFound();
+            }
+            return Ok(userData);
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddUser(UserDTO model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            await _Service.AddUserAsync(model);
+            return Ok();
+
+        }
     
      
     }

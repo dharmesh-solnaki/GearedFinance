@@ -22,9 +22,10 @@ public partial class User
     [StringLength(100)]
     public string Email { get; set; } = null!;
 
-    public int Mobile { get; set; }
+    [StringLength(10)]
+    public string Mobile { get; set; } =null!;
 
-    [StringLength(50)]
+    [StringLength(128)]
     public string? Password { get; set; }
 
     public int NotificationPreferences { get; set; }
@@ -37,13 +38,13 @@ public partial class User
     [Column("IsUserInGAFSalesRepList")]
     public bool? IsUserInGafsalesRepList { get; set; }
 
-    public int DayOfBirth { get; set; }
+    public int? DayOfBirth { get; set; }
 
-    public int MonthOfBirth { get; set; }
+    public int? MonthOfBirth { get; set; }
 
-    public int RelationshipManager { get; set; }
+    public int? RelationshipManager { get; set; }
 
-    public int ReportingTo { get; set; }
+    public int? ReportingTo { get; set; }
 
     public bool? IsUserInVendorSalesRepList { get; set; }
 

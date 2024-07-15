@@ -47,6 +47,9 @@ public partial class ApplicationDBContext : DbContext
             entity.Property(e => e.Status).HasDefaultValueSql("true");
             entity.Property(e => e.UnassignedApplications).HasDefaultValueSql("true");
 
+            entity.Property(e => e.Mobile).HasColumnType("varchar").HasMaxLength(10);
+            
+
             entity.HasOne(d => d.Role).WithOne(p => p.User)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Users_Roles_RolesId");

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "+1CryaPyXYS7IjeX8a+VRT7lvhl1DJ4Mc8VXZkHcOxxgMf1p8fGGzoftfJRanNTh+ja0u78v+cSmdo/tNOeW7w==",
+  "dgSpecHash": "5kl+8BkVDtC+hcTevy8VIe/NY5bOACvz2Yt03/1c1rUnbDfk9tYxD29W1ZoXmfmMzEqwbMv0jQGQmnrpitsdBQ==",
   "success": true,
   "projectFilePath": "D:\\GearedFinance\\Backend\\Service\\Service.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\pce119\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\pce119\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.20\\microsoft.entityframeworkcore.7.0.20.nupkg.sha512",
     "C:\\Users\\pce119\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.20\\microsoft.entityframeworkcore.abstractions.7.0.20.nupkg.sha512",
     "C:\\Users\\pce119\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.20\\microsoft.entityframeworkcore.analyzers.7.0.20.nupkg.sha512",

@@ -1,12 +1,12 @@
-D:\GearedFinance\Backend\Entities\bin\Debug\net7.0\Entities.deps.json
-D:\GearedFinance\Backend\Entities\bin\Debug\net7.0\Entities.runtimeconfig.json
-D:\GearedFinance\Backend\Entities\bin\Debug\net7.0\Entities.dll
-D:\GearedFinance\Backend\Entities\bin\Debug\net7.0\Entities.pdb
 D:\GearedFinance\Backend\Entities\obj\Debug\net7.0\Entities.csproj.AssemblyReference.cache
 D:\GearedFinance\Backend\Entities\obj\Debug\net7.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
 D:\GearedFinance\Backend\Entities\obj\Debug\net7.0\Entities.AssemblyInfoInputs.cache
 D:\GearedFinance\Backend\Entities\obj\Debug\net7.0\Entities.AssemblyInfo.cs
 D:\GearedFinance\Backend\Entities\obj\Debug\net7.0\Entities.csproj.CoreCompileInputs.cache
+D:\GearedFinance\Backend\Entities\bin\Debug\net7.0\Entities.deps.json
+D:\GearedFinance\Backend\Entities\bin\Debug\net7.0\Entities.runtimeconfig.json
+D:\GearedFinance\Backend\Entities\bin\Debug\net7.0\Entities.dll
+D:\GearedFinance\Backend\Entities\bin\Debug\net7.0\Entities.pdb
 D:\GearedFinance\Backend\Entities\obj\Debug\net7.0\Entities.dll
 D:\GearedFinance\Backend\Entities\obj\Debug\net7.0\refint\Entities.dll
 D:\GearedFinance\Backend\Entities\obj\Debug\net7.0\Entities.pdb

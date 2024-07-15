@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "XVcTEl7BkqMuGQ0LTUv6WZaKmOuggwbdY99n78+PzX+x6ZkHgJDlaNqBE63a65T6Y11sqBCFMpbAmdna41rBVA==",
+  "dgSpecHash": "StvY2FF3N5nDEOnZXeXI5b24qU/Pw3QpeqV0vk1PO4hO3BW0d30sKMm0zt86gFa3E+o+lVEKdNuXDjB2To0zjQ==",
   "success": true,
   "projectFilePath": "D:\\GearedFinance\\Backend\\Geared-Finance-API\\Geared-Finance-API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\pce119\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\pce119\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\pce119\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.11\\microsoft.aspnetcore.openapi.7.0.11.nupkg.sha512",
     "C:\\Users\\pce119\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.20\\microsoft.entityframeworkcore.7.0.20.nupkg.sha512",
